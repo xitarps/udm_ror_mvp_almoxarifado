@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_062730) do
+ActiveRecord::Schema.define(version: 2021_06_29_063514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "entradas", force: :cascade do |t|
     t.date "data", null: false
-    t.string "documento", limit: 10, null: false
-    t.string "numero", limit: 10, null: false
+    t.string "documento", limit: 40, null: false
+    t.string "numero", limit: 20, null: false
     t.decimal "quantidade", precision: 11, scale: 4, default: "0.0", null: false
     t.decimal "preco_unitario", precision: 11, scale: 2, default: "0.0", null: false
     t.decimal "preco_total", precision: 11, scale: 2, default: "0.0", null: false
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_06_29_062730) do
 
   create_table "estoques", force: :cascade do |t|
     t.integer "tipo", default: 0, null: false
-    t.string "descricao", limit: 50, null: false
+    t.string "descricao", limit: 100, null: false
     t.string "codigo", limit: 30
-    t.string "unidade", limit: 5, null: false
+    t.string "unidade", limit: 10, null: false
     t.boolean "perecivel", default: false
     t.decimal "estoque_minimo", precision: 11, scale: 4, default: "0.0", null: false
     t.decimal "estoque_maximo", precision: 11, scale: 4, default: "0.0", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_062730) do
   end
 
   create_table "grupos", force: :cascade do |t|
-    t.string "nome", limit: 30, null: false
+    t.string "nome", limit: 50, null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

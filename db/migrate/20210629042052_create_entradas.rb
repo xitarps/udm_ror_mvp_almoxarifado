@@ -2,8 +2,8 @@ class CreateEntradas < ActiveRecord::Migration[6.1]
   def change
     create_table :entradas do |t|
       t.date :data, null: false
-      t.string :documento, limit: 10, null: false
-      t.string :numero, limit: 10, null: false
+      t.string :documento, limit: 40, null: false
+      t.string :numero, limit: 20, null: false
       t.decimal :quantidade, default: 0, null: false, :precision => 11, :scale => 4
       t.decimal :preco_unitario, default: 0, null: false, :precision => 11, :scale => 2
       t.decimal :preco_total, default: 0, null: false, :precision => 11, :scale => 2

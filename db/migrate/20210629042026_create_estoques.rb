@@ -2,9 +2,9 @@ class CreateEstoques < ActiveRecord::Migration[6.1]
   def change
     create_table :estoques do |t|
       t.integer :tipo, default: 0, null: false
-      t.string :descricao, limit: 50, null: false
+      t.string :descricao, limit: 100, null: false
       t.string :codigo, limit: 30, null: true
-      t.string :unidade, limit: 5, null: false
+      t.string :unidade, limit: 10, null: false
       t.boolean :perecivel, default: false
       t.decimal :estoque_minimo, default: 0, null: false, :precision => 11, :scale => 4
       t.decimal :estoque_maximo, default: 0, null: false, :precision => 11, :scale => 4
